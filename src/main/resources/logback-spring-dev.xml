@@ -1,0 +1,86 @@
+<configuration>
+    <!-- 属性文件:在properties文件中找到对应的配置项 -->
+    <springProperty scope="context" name="logging.path"  source="logging.path"/>
+    <springProperty scope="context" name="logging.level" source="logging.level.com.cmb.xzkb"/>
+    <!-- 默认的控制台日志输出，一般生产环境都是后台启动，这个没太大作用 -->
+    <property name="CONSOLE_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger) :%line %yellow(->) %msg%n" />
+    <!-- 项目统一日志输出格式-文本 -->
+    <property name="FILE_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] %-5level %logger{50} :%line -> %msg%n" />
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--%cyan颜色 %logger日志名称 %line行号 %msg日志信息 %n换行-->
+            <Pattern>${CONSOLE_PATTERN}</Pattern>
+        </encoder>
+    </appender>
+    <!--<logger name="java.sql">
+        <level value="debug" />
+    </logger>
+    <logger name="org.apache.ibatis">
+        <level value="info" />
+    </logger>-->
+    <appender name="RollingFileInfo" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <file>
+            ${logging.path}/info.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logging.path}/%d{yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log.gz</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <MaxFileSize>20MB</MaxFileSize>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="RollingFileWarn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <file>
+            ${logging.path}/warn.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logging.path}/%d{yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log.gz</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <MaxFileSize>20MB</MaxFileSize>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="RollingFileError" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <file>
+            ${logging.path}/error.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${logging.path}/%d{yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log.gz</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <MaxFileSize>20MB</MaxFileSize>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="RollingFileInfo"/>
+        <appender-ref ref="RollingFileWarn"/>
+        <appender-ref ref="RollingFileError"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

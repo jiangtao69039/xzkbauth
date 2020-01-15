@@ -1,0 +1,44 @@
+server:
+  port: 8458
+  servlet:
+    context-path: /
+
+logging:
+  config: classpath:logback-spring-local.xml
+  level:
+    com:
+      cmb:
+        xzkb: DEBUG
+  path: ./logs
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      max-active: 30
+      max-wait: 10000
+      min-evictable-idle-time-millis: 30000
+      min-idle: 5
+      time-between-eviction-runs-millis: 60000
+      url: jdbc:mysql://127.0.0.1:3306/xzkb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowMultiQueries=true&serverTimeZone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root
+      validation-query: SELECT 'x'
+  jpa:
+    database: mysql
+    show-sql: true
+
+  redis:
+    host: 127.0.0.1
+    jedis:
+      pool:
+        max-active: -1
+        max-idle: 10
+        max-wait: 100000
+        min-idle: 0
+    port: 6379
+    timeout: 0

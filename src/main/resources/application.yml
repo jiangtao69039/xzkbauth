@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: mylocal
+
+  application:
+    name: service-auth
+
+  aop:
+    auto: true
+    proxy-target-class: true
+
+ribbon:
+  eager-load:
+    enabled: true
