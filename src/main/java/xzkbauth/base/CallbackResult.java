@@ -31,7 +31,7 @@ public class CallbackResult<T> implements Serializable {
   private T businessObject;
 
   private CallbackResult(
-          int statusCode, String bizName, String bizMsg, T biz, Throwable t, String errCode) {
+      int statusCode, String bizName, String bizMsg, T biz, Throwable t, String errCode) {
     this.statusCode = statusCode;
     this.bizName = bizName;
     this.bizMsg = bizMsg;
@@ -49,7 +49,7 @@ public class CallbackResult<T> implements Serializable {
   }
 
   public static <T> CallbackResult<T> failure(
-          String bizName, String bizMsg, String errCode, T biz, Throwable t) {
+      String bizName, String bizMsg, String errCode, T biz, Throwable t) {
     return new CallbackResult<>(FAILURE, bizName, bizMsg, biz, t, errCode);
   }
 
