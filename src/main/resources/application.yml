@@ -12,3 +12,134 @@ spring:
 ribbon:
   eager-load:
     enabled: true
+
+
+msg:
+  add:
+    success: 添加成功
+  adver:
+    QrCodeHOverFlow: 二维码高度H不在有效范围内
+    QrCodeWOverFlow: 二维码宽度W不在有效范围内
+    QrCodeXOverFlow: 二维码位置X不在有效范围内
+    QrCodeYOverFlow: 二维码位置Y不在有效范围内
+    nameTooLong: 物料名称超过10个字
+    sameStatus: 您设置的状态与原状态相同
+    searchNull: 查询结果为空
+  authority:
+    noauthority: 没有权限
+  branch:
+    branchAccountOver20: 分行托管账号请限制10字以内
+    branchCodOver8: 分行码请限制8字符以内
+    branchIsPresent: 该分行码已存在
+    branchNameOver20: 分行名称请限制10字以内
+    canNotEdit: 无法修改，该分行码已关联商户！
+    hasMerchants: 无法删除，该分行下已有商户数据！
+  consumpRecord:
+    TimeFormatIsError: 搜索日期格式不正确
+  coupons:
+    branchCodIsNull: 当前登录用户所属分行不明确
+    haveGaven: 代金券已被领取过，无法删除。如不再发放，请使用下架操作。
+    isTime: 该代金券正处于发放期，无法删除
+    notfound: 查不到该代金券
+    operateSuccess: 操作成功
+    sameStatus: 您设置的代金券状态与原状态相同
+  createManager:
+    success: 未找到商户管理员账号，已为您创建
+  delete:
+    success: 删除成功
+  enterApp:
+    noApp: 查不到该外部应用信息
+  insideAccount:
+    timeFormatError: 查询的对账日期格式有误
+  label:
+    hasUsedByStore: 无法删除，该标签已关联门店！
+    labelCodOver6: 标签码请限制6字符以内
+    labelIsPresent: 该标签码已存在
+    labelNameOver10: 标签名称请限制5字以内
+  login:
+    empty: 用户名或密码不能为空
+    errornamepwd: 用户名或密码错误
+    fulcode: 账号密码已错多次，请输入验证码
+    lockagin: 再输错一次账号会被锁定
+    loginsuccess: 登录成功
+    nophone: 手机号不能为空
+    notlogin: 未登录
+    noverifycode: 验证码不能为空
+    outOfDate: 登录信息过期，请重新登录
+    overtime: '登录超时 '
+    phonttoolong: 手机号不正确
+    retry: 账号锁定，三十分钟后再尝试登录
+    verifycodeinvalid: 验证码无效
+    wrongcode: 验证码错误
+  merch:
+    kaUpgraded: 该KA型商户已完成升级
+    kbRelated: 该KB型商户已关联其他KA型商户
+    nameIsTooLong: 商户名称请限制在12字以内
+    notfound: 查不到该KB型商户，请检查输入信息
+  merchant:
+    accountOver20: 收款账号请限制20字符以内
+    allNameOver30: 商户全称请限制15字以内
+    briefNameOver18: 商户简称请限制9字以内
+    flagIsPresent: 此商户标识已存在！
+    hasStoreOrProduct: 无法删除，该商户下已有门店或产品数据！
+    noMerchantCod: 无法更新，此商户未获取到商户号！
+  needParamIsNull: 传入的必填参数中存在空值
+  noMerch: 未找到该商户
+  operate:
+    success: 操作成功
+  paramIsNull: 传入参数存在空值
+  prococol:
+    noprococol: 查询不到相应的协议
+  product:
+    giftCanotSelect: 赠卡无法关联其他赠卡
+    giftNotPresent: 赠卡不存在或已下架
+    imgIsNull: 产品图片信息不全
+    noparam: 参数存在空值
+    noproduct: 查无此产品
+    notAverage: 该年卡产生的月账单金额不是整数，请调整
+    notalloweddel: 该产品已经被使用，不得删除
+    productCodOrNameIsPresent: 产品代码或产品名称重复
+    toolong: 产品名称大于10个字
+    unitError: 添加年卡产品时，请选择“月”作为有效期单位
+    wrongTime: 产品下架时间不得早于开售时间
+    wrongextiredTime: 有效时间有误
+  refund:
+    backInfoDeal: 退款状态更新完毕
+    branCodError: 分行码有误
+    detailValueIsEmpty: 客户卡退款结果未按约定返回
+    noApplyNeedRefund: 该批次下未找到任何退款申请，无需操作退款
+    notFitStep: 该批次非待复核状态，无法执行此操作
+    notFoundBatch: 该批次不存在
+    notOp: 您非本分行管理员，无法执行此操作
+    operateError: 操作不存在
+    paramFormatError: 参数格式有误
+    paramIsNull: 参数为空
+    paramValueIsMissing: 参数缺失或存在空值
+    recordValueIsEmpty: 商户汇总退款结果未按约定返回
+    searchDateFmtError: 查询日期格式有误
+    signError: 验签失败
+    signParamIsEmpty: 签名参数为空
+    success: 操作成功
+  role:
+    notCMBManager: 您没有权限登录小招卡包管理后台
+  searchResultError: 查询结果有误
+  store:
+    addressOver100: 地址信息请限制50字以内
+    hasSaledMermberCard: 无法删除，该门店下已有出售的会员卡数据！
+    phoneOver50: 电话信息请限制25字以内
+    storesDescOver150: 门店简述请限制75字以内
+    storesNameOver12: 门店名称请限制12字以内
+    workTimeOver150: 营业时间信息请限制75字以内
+  update:
+    success: 更新成功
+  user:
+    noAuthToResetPwd: 您没有重置该账号密码的权限
+    notfound: 查不到该用户
+  web:
+    createSuccess: 商户创建成功
+    merchantIsNotPresent: 商户不存在
+    merchantIsPresent: 商户已存在
+    noAuth: 验签失败
+    paramIsNull: 参数存在空值
+    paramIsTooLong: 参数过长
+    updateSuccess: 商户信息修改成功
