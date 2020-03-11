@@ -7,10 +7,9 @@ import xzkbauth.common.jpa.repository.SyWarningPlatformRepository;
 
 @Service("syWarningPlatformService")
 public class SyWarningPlatformServiceImpl {
-    @Autowired
-    SyWarningPlatformRepository syWarningPlatformRepository;
+  @Autowired SyWarningPlatformRepository syWarningPlatformRepository;
 
-    public SyWarningPlatform save(SyWarningPlatform syWarningPlatform){
-        return syWarningPlatformRepository.save(syWarningPlatform);
-    }
+  public SyWarningPlatform save(SyWarningPlatform syWarningPlatform) {
+    return syWarningPlatformRepository.save(syWarningPlatform);
+  }
 }

@@ -8,10 +8,9 @@ import xzkbauth.common.jpa.repository.SyUserRepository;
 @Service("syUserService")
 public class SyUserServiceImpl {
 
-    @Autowired
-    SyUserRepository syUserRepository;
-    public SyUser findByUserCod(String userCod){
-        return syUserRepository.findByUserCod(userCod);
-    }
+  @Autowired SyUserRepository syUserRepository;
 
+  public SyUser findByUserCod(String userCod) {
+    return syUserRepository.findByUserCod(userCod);
+  }
 }

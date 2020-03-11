@@ -22,11 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController extends BaseController {
 
   Logger logger = LoggerFactory.getLogger(LoginController.class);
-  @Autowired
-  private Environment env ;
-  @Autowired
-  LoginServiceImpl loginService;
-
+  @Autowired private Environment env;
+  @Autowired LoginServiceImpl loginService;
 
   /**
    * 原cmbserver的login接口 sysUser登录
@@ -35,14 +32,16 @@ public class LoginController extends BaseController {
    */
   @PostMapping("/system/login")
   public Result login(
-      String userCod, String password,
+      String userCod,
+      String password,
       @RequestParam(required = false) String verifyCode,
       @RequestParam(required = false) String phoneCode,
-      HttpServletRequest request, HttpServletResponse response) {
+      HttpServletRequest request,
+      HttpServletResponse response) {
     // TODO redis序列化方式和原先不同*
-      if(StringUtils.isEmpty(userCod) || StringUtils.isEmpty(password)){
-        throw new RuntimeException(env.getProperty("msg.login.empty"));
-      }
+    if (StringUtils.isEmpty(userCod) || StringUtils.isEmpty(password)) {
+      throw new RuntimeException(env.getProperty("msg.login.empty"));
+    }
 
     return null;
   }

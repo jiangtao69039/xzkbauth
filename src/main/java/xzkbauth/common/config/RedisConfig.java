@@ -25,7 +25,7 @@ public class RedisConfig {
     // ObjectMapper在序列化对象到redis时,会将对象序列化成 ["包名.类名","{类数据}"]的json字符串,用于自动转换类型
     // 这里注释掉因为不同项目中同一个类的包名可能不同,否则会报classnotfound错误,需要取出json手动转型
     // 字符串类型的value没有包名
-     jackson2JsonRedisSerializer.setObjectMapper(om);
+    jackson2JsonRedisSerializer.setObjectMapper(om);
     // 跨服务获取redis 同一个key时,注意这里
     StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
     template.setKeySerializer(stringRedisSerializer);

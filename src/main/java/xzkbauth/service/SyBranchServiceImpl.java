@@ -7,9 +7,9 @@ import xzkbauth.common.jpa.repository.SyBranchRepository;
 
 @Service("syBranchService")
 public class SyBranchServiceImpl {
-    @Autowired
-    SyBranchRepository syBranchRepository;
-   public  SyBranch findByBranchCod(String branchCod){
-        return syBranchRepository.findByBranchCod(branchCod);
-    }
+  @Autowired SyBranchRepository syBranchRepository;
+
+  public SyBranch findByBranchCod(String branchCod) {
+    return syBranchRepository.findByBranchCod(branchCod);
+  }
 }
